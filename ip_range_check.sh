@@ -77,6 +77,6 @@ for i in $(seq 0 ${offset});
 do
     ip_num=$(expr ${ip_start_num} + ${i})
     ip=$(int_to_ip ${ip_num})
-    arping -c 1 ${ip} | tee ${log_file}
+    arping -c 1 ${ip} | tee -a ${log_file}
     sleep 1
 done
