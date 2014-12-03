@@ -71,6 +71,7 @@ if [ -e ${log_file} ];then
 fi
 
 # arping it.
+mac_regex='([0-9A-F]{2}[:-]){5}([0-9A-F]{2})'
 offset=$(expr ${ip_end_num} - ${ip_start_num})
 for i in $(seq 0 ${offset});
 do
@@ -79,3 +80,8 @@ do
     arping -c 1 ${ip} | tee -a ${log_file}
     sleep 1
 done
+
+registered_ips_num=$(cat ${log_file} | egrep ${mac_regex} | wc -l)
+echo -e "\n************************************************" | tee -a ${log_file}
+echo -e "Scanning is finished." |  tee -a ${log_file}
+echo -e "Total Scanned IPs=$(expr ${offset} + 1), where Registered IPs=${registered_ips_num}" | tee -a ${log_file}
