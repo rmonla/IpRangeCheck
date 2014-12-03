@@ -4,8 +4,11 @@ set -x #debug mode
 log_file=~/arping-test-result_"$(date +%X)".log
 
 function usage() {
-   echo "Usage: $(basename ${0}) --start IPADDR --end IPADDR --netmask NETMASK" 1>&2; exit 1;
+   echo -e "Usage: $(basename ${0}) --start IPADDR --end IPADDR"
+   echo -e "  OR   $(basename ${0}) -s IPADDR -e IPADDR"
+   1>&2; exit 1;
 }
+
 
 function ip_to_int() {
   local IP="${1}"
@@ -47,10 +50,6 @@ do
       -e | --end)
           shift
           ip_end=${1}
-      ;;
-      -m | --netmask)
-          shift
-          netmask=${1}
       ;;
       -h | ? | --help)
           usage
