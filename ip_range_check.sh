@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# set -x # Modo de depuración
+# set -x # Modo de depuración.
 log_file=~/arping-test-result_$(date +%X).log
 
 usage() {
