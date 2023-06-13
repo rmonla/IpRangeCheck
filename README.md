@@ -4,8 +4,10 @@ IpRangeCheck
 check the given IP ranges which were registered or not. (via Linux command `arping`) 
 
 
-`` Usage: $(basename ${0}) --start IPADDR --end IPADDR 
-   OR                      -s IPADDR  -e IPADDR ``
+``` 
+Usage: $(basename ${0}) --start IPADDR --end IPADDR 
+   OR                      -s IPADDR  -e IPADDR
+```
 
 
 Examples
